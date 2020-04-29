@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
-import models
+from resources.footballers import footballers
+import models 
 
 DEBUG=True
 PORT=8000
@@ -8,6 +9,8 @@ app = Flask(__name__) # instantiateing the flask class
 
 # these are where the routes go
 # the first should always be, by convention, a hello world 
+
+app.register_blueprint(footballers, url_prefix='/api/v1/footballers/')
 
 @app.route('/')
 def hello():
