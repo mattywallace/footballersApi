@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 DEBUG=True
 PORT=8000
@@ -11,6 +11,9 @@ app = Flask(__name__) # instantiateing the flask class
 @app.route('/')
 def hello():
 	return "Cheeky Footballers"
+@app.route('/test_json')
+def get_json():
+	return jsonify(['hello', 'hi', 'hey'])
 
 if __name__ == '__main__':
 	app.run(debug=DEBUG, port=PORT)
